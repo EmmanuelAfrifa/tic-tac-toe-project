@@ -194,17 +194,18 @@ function computerMove(){
     boardArray[bestMove] = currentMark;
     player = currentMark;
 
-    currentMark = currentMark === 'cross' ? 'circle' : 'cross';
-    whosTurn = whosTurn === 'whos-turn-cross' ? 'whos-turn-circle' : 'whos-turn-cross';
-    whosTurnDisplay.className = whosTurn;
-
-
     let winStatus = getWinStatus(boardArray, player);
     if (winStatus){
         winStatusUpdates(winStatus);
     }
 
+    
+
     if (!winStatus){
+      
+        currentMark = currentMark === 'cross' ? 'circle' : 'cross';
+        whosTurn = whosTurn === 'whos-turn-cross' ? 'whos-turn-circle' : 'whos-turn-cross';
+        whosTurnDisplay.className = whosTurn;
         boxClick();
     }
 
@@ -507,7 +508,17 @@ function nextRound(){
     gameResultsDisplay.style.display = 'none';
     gamePageDisplay.style.display = 'flex';
     
-    boxClick()
+    if (gameMode === 'CPU'){
+        if (playerOneScoreKeeper.children[0].innerText.slice(2) === '(YOU)'){
+            boxClick()
+        }
+        else {
+            setTimeout(computerMove, 50);
+        }
+    }
+    else if (gameMode === HUMANS){
+        boxClick()
+    }
 }
 
 // Adding an event listener to the restartGameButton.

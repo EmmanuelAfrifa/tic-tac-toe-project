@@ -18,8 +18,8 @@
 ![Screenshot of the webpage](./images/Web%20capture_29-6-2023_13653_127.0.0.1.jpeg)
 
 ### Links
-- [Github repository](#)
-- [Deployed site](#)
+- [Github repository](https://github.com/EmmanuelAfrifa/tic-tac-toe-project)
+- [Deployed site](https://tic-tac-toe-game-project-sol.netlify.app/)
 
 ## Process
 ### Tools Used

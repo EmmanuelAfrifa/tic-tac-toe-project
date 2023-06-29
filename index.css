@@ -480,6 +480,19 @@ h3, h5, p, div {
     border-radius: 50%;
 }
 
+.circle-after {
+    position: relative;
+}
+
+.circle-after::after {
+    content: '';
+    height: 60%;
+    width: 60%;
+    margin: auto;
+    border: 12px solid #1F3641;
+    border-radius: 50%;
+}
+
 .game-results-display {
     position: fixed;
     left: 0px;

@@ -109,7 +109,7 @@ VsCPUButton.addEventListener('click', function(event){
         boxClick()
     }
     else {
-        setTimeout(computerMove, 50);
+        computerMove();
     }
 
 })
@@ -162,6 +162,9 @@ function markersToggler(event){
         if (winStatus){
             winStatusUpdates(winStatus);
         }
+        else {
+            boxClick();
+        }
     }
     else if (gameMode === 'CPU'){
         let winStatus = getWinStatus(boardArray, player);
@@ -169,7 +172,7 @@ function markersToggler(event){
             winStatusUpdates(winStatus);
         }
         else {
-            setTimeout(computerMove, 50)
+            computerMove();
         }
         
     }
@@ -200,12 +203,11 @@ function computerMove(){
     }
 
     
-
-    if (!winStatus){
       
-        currentMark = currentMark === 'cross' ? 'circle' : 'cross';
-        whosTurn = whosTurn === 'whos-turn-cross' ? 'whos-turn-circle' : 'whos-turn-cross';
-        whosTurnDisplay.className = whosTurn;
+    currentMark = currentMark === 'cross' ? 'circle' : 'cross';
+    whosTurn = whosTurn === 'whos-turn-cross' ? 'whos-turn-circle' : 'whos-turn-cross';
+    whosTurnDisplay.className = whosTurn;
+    if (!winStatus){
         boxClick();
     }
 
@@ -289,6 +291,7 @@ function minimax(board, whosGo) {
     return moves[bestMove];
 }
   
+
   
 // A function that checks the game status (whether there is a win or draw)
 function getWinStatus(board, player){
@@ -388,13 +391,11 @@ function winStatusUpdates(winStatus){
         }
         whoWonGame.style.color = '#F2B137';
         gameResultsDisplay.style.display = 'flex';
-        let [a,b,c] = winStatus.index;
-        let circles = document.querySelectorAll('.circle')
-        for (let j=0; j<circles.length; j++){
-            if (circles[j].id == a || circles[j].id == b || circles[j].id == c){
-                circles[j].style.setProperty('--changeCircleAfter', '#1F3641')
-            }
-        }
+
+        winStatus.index.forEach((element) => {
+            boxes[element].classList.remove('circle')
+            boxes[element].classList.add('circle-after');
+        })
 
         for (let i=0; i<winStatus.index.length; i++){
             boxes[winStatus.index[i]].style.backgroundColor = '#F2B137';
@@ -507,16 +508,16 @@ function nextRound(){
 
     gameResultsDisplay.style.display = 'none';
     gamePageDisplay.style.display = 'flex';
-    
+
     if (gameMode === 'CPU'){
         if (playerOneScoreKeeper.children[0].innerText.slice(2) === '(YOU)'){
             boxClick()
         }
         else {
-            setTimeout(computerMove, 50);
+            computerMove();
         }
     }
-    else if (gameMode === HUMANS){
+    else if (gameMode === 'HUMANS'){
         boxClick()
     }
 }

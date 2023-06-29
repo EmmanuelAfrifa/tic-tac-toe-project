@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./index.css">
+
+    <link rel="icon" href="./images/tic-tac-toe-logo.jpg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Tic Tac Toe Game</title>
+</head>
+<body>
+    <div id="start-container" class="main-page">
+        <h3 id="heading">
+            <div id="x-logo"></div>
+            <div id="o-logo"></div>
+        </h3>
+        <div id="mark-chose">
+            <p id="player1">pick player 1's mark</p>
+            <div id="choice-container">
+                <div class="choice-box"><div id="x-box"></div></div>
+                <div class="choice-box"><div id="o-box"></div></div>
+            </div>
+            <p id="note">remember: X goes first</p>
+        </div>
+
+        <button id="new-game-cpu">NEW GAME (VS CPU)</button>
+        <button id="new-game-player">NEW GAME (VS PLAYER)</button>
+
+    </div>
+
+    <div id="second-page">
+        <div id="game-container">
+            <div id="top-section">
+                <h3 id="heading">
+                    <div id="x-logo"></div>
+                    <div id="o-logo"></div>
+                </h3>
+    
+                <div id="whos-turn"><div class="whos-turn-cross" id="who"></div>TURN</div>
+    
+                <button id="restart-button"><i class="fa fa-rotate-right"></i></button>
+            </div>
+    
+            <div id="game-section">
+                <div class="boxes" id="0"></div>
+                <div class="boxes" id="1"></div>
+                <div class="boxes" id="2"></div>
+                <div class="boxes" id="3"></div>
+                <div class="boxes" id="4"></div>
+                <div class="boxes" id="5"></div>
+                <div class="boxes" id="6"></div>
+                <div class="boxes" id="7"></div>
+                <div class="boxes" id="8"></div>
+            </div>
+    
+            <div id="scores-section">
+                <div class="scores" id="p1-score">
+                    <h5>TRY</h5>
+                    <p>0</p>
+                </div>
+                <div class="scores" id="ties-score">
+                    <h5>TIES</h5>
+                    <p>0</p>
+                </div>
+                <div class="scores" id="p2-score">
+                    <h5>TRY</h5>
+                    <p>0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="game-results-display">
+        <div id="results-display">
+            <p id="win-lose">OH NO, YOU WON</p>
+            <div id="who-won"><div class="winner-mark" id="win-logo"></div>TAKES THE ROUND</div>
+            <div id="buttons">
+                <button id="quit-button" class="silver-button">QUIT</button>
+                <button id="restart-new-game-button" class="orange-button">NEXT ROUND</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="restart-game-section">
+        <div id="inner-container">
+            <div id="restart-question">RESTART GAME?</div>
+            <div id="restart-buttons">
+                <button id="no-button" class="silver-button">NO, CANCEL</button>
+                <button id="yes-button" class="orange-button">YES, RESTART</button>
+            </div>
+        </div>
+    <div>
+
+    <script src="./actual.js"></script>
+</body>
+</html>

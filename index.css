@@ -487,7 +487,7 @@ h3, h5, p, div {
 .circle-after::after {
     content: '';
     height: 60%;
-    width: 60%;
+    width: 52%;
     margin: auto;
     border: 12px solid #1F3641;
     border-radius: 50%;

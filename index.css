@@ -184,10 +184,7 @@ h3, h5, p, div {
     color: #1A2A33 ;
 }
 
-.choice-box:active {
-    background-color: var(--silver); 
-    color: #1A2A33 ;
-}
+
 
 
 .choice-box:hover > #x-box::before {
@@ -195,6 +192,14 @@ h3, h5, p, div {
 }
 
 .choice-box:hover > #x-box::after {
+    background-color: #1A2A33;
+}
+
+.choice-box:focus > #x-box::before {
+    background-color: #1A2A33;
+}
+
+.choice-box:focus > #x-box::after {
     background-color: #1A2A33;
 }
 
@@ -236,6 +241,16 @@ h3, h5, p, div {
 .choice-box:hover > #o-box {
     border-color: #1A2A33;
 }
+
+.choice-box:focus > #o-box {
+    border-color: #1A2A33;
+}
+
+.choice-box:active, .choice-box:focus {
+    background-color: var(--silver); 
+    color: #1A2A33 ;
+}
+
 
 #new-game-cpu {
     background-color: var(--orange-button);

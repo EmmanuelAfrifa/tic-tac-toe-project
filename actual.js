@@ -4,6 +4,7 @@ let playerOneMark = '';
 let player = 'cross';
 let currentMark = 'cross';
 let whosTurn = 'whos-turn-cross';
+let hoverMarker = 'cross-mark';
 let whosTurnDisplay = document.querySelector('#who');
 
 let playerOneScoreKeeper = document.getElementById('p1-score');
@@ -109,7 +110,7 @@ VsCPUButton.addEventListener('click', function(event){
         boxClick()
     }
     else {
-        computerMove();
+        setTimeout(computerMove, 500);
     }
 
 })
@@ -156,6 +157,8 @@ function markersToggler(event){
     currentMark = currentMark === 'cross' ? 'circle' : 'cross';
     whosTurn = whosTurn === 'whos-turn-cross' ? 'whos-turn-circle' : 'whos-turn-cross';
     whosTurnDisplay.className = whosTurn;
+    hoverMarker = hoverMarker === 'cross-mark' ? 'circle-mark' : 'cross-mark';
+    document.getElementById('game-section').className = `game-section ${hoverMarker}`;
 
     if (gameMode === 'HUMANS'){
         let winStatus = getWinStatus(boardArray, player);
@@ -172,7 +175,7 @@ function markersToggler(event){
             winStatusUpdates(winStatus);
         }
         else {
-            computerMove();
+            setTimeout(computerMove, 500);
         }
         
     }
@@ -196,6 +199,7 @@ function computerMove(){
     boxes[bestMove].classList.add(currentMark);
     boardArray[bestMove] = currentMark;
     player = currentMark;
+    
 
     let winStatus = getWinStatus(boardArray, player);
     if (winStatus){
@@ -207,6 +211,9 @@ function computerMove(){
     currentMark = currentMark === 'cross' ? 'circle' : 'cross';
     whosTurn = whosTurn === 'whos-turn-cross' ? 'whos-turn-circle' : 'whos-turn-cross';
     whosTurnDisplay.className = whosTurn;
+    hoverMarker = hoverMarker === 'cross-mark' ? 'circle-mark' : 'cross-mark';
+    document.getElementById('game-section').className = `game-section ${hoverMarker}`;
+
     if (!winStatus){
         boxClick();
     }
@@ -465,6 +472,8 @@ function quit(){
     currentMark = 'cross';
     whosTurn = 'whos-turn-cross';
     whosTurnDisplay.className = whosTurn;
+    hoverMarker = 'cross-mark';
+    document.getElementById('game-section').className = `game-section ${hoverMarker}`;
 
     winLoseMessage.hidden = false;  
     whoWonGame.innerHTML = `<div class="winner-mark" id="win-logo"></div>TAKES THE ROUND`;
@@ -502,6 +511,8 @@ function nextRound(){
     currentMark = 'cross';
     whosTurn = 'whos-turn-cross';
     whosTurnDisplay.className = whosTurn;
+    hoverMarker = 'cross-mark';
+    document.getElementById('game-section').className = `game-section ${hoverMarker}`;
 
     winLoseMessage.hidden = false;
     whoWonGame.innerHTML = `<div class="winner-mark" id="win-logo"></div>TAKES THE ROUND`;
@@ -514,7 +525,7 @@ function nextRound(){
             boxClick()
         }
         else {
-            computerMove();
+            setTimeout(computerMove, 500);
         }
     }
     else if (gameMode === 'HUMANS'){
@@ -543,6 +554,7 @@ yesButton.addEventListener('click', yesCancelGame)
 
 // It restarts the current round.
 function yesCancelGame(){
-    nextRound();
     RestartGameDisplay.style.display = 'none';
+    gamePageDisplay.style.display = 'none';
+    homePageDisplay.style.display = 'flex';
 }

@@ -176,11 +176,17 @@ h3, h5, p, div {
     border-radius: 5px;
     font-size: 2.5em;
     font-weight: 800;
+    cursor: pointer;
 }
 
 .choice-box:hover {
-    background-color: var(--silver) !important; 
-    color: #1A2A33 !important;
+    background-color: #a8bfc944; 
+    color: #1A2A33 ;
+}
+
+.choice-box:active {
+    background-color: var(--silver); 
+    color: #1A2A33 ;
 }
 
 
@@ -240,6 +246,7 @@ h3, h5, p, div {
     border: none;
     border-bottom: 5px solid #d89b2a;
     font-weight: 800;
+    cursor: pointer;
 }
 
 #new-game-cpu:hover {
@@ -256,6 +263,7 @@ h3, h5, p, div {
     border: none;
     border-bottom: 5px solid #1a7e7a;
     font-weight: 800;
+    cursor: pointer;
 }
 
 
@@ -266,6 +274,7 @@ h3, h5, p, div {
 
 #second-page {
     display: none;
+    position: relative;
 }
 
 
@@ -362,6 +371,7 @@ h3, h5, p, div {
     border: none;
     border-bottom: 2px solid #83949b;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 #restart-button i {
@@ -370,6 +380,7 @@ h3, h5, p, div {
     width: 25px;
     height: 25px;
     color: var(--body-background);
+    cursor: pointer;
 }
 
 #restart-button:hover {
@@ -395,8 +406,14 @@ h3, h5, p, div {
     border-radius: 10px;
     display: flex;
     justify-content: center;
-    align-items: centers;
+    align-items: center;
     cursor: pointer;
+    position: relative;
+}
+
+.boxes.cross,
+.boxes.circle {
+    cursor: not-allowed;
 }
 
 #scores-section {
@@ -446,6 +463,37 @@ h3, h5, p, div {
     position: relative;
 }
 
+
+.game-section.cross-mark > .boxes
+.game-section.cross-mark > .boxes{
+    position: absolute;
+}
+
+.game-section.cross-mark > .boxes:not(.cross):not(.circle):hover::before,
+.game-section.cross-mark > .boxes:not(.cross):not(.circle):hover::after {
+    content: '';
+    position: absolute;
+    background-color: var(--squares-background);
+    border: 2px solid var(--blue-button);
+    transform: rotate(45deg);
+} 
+
+.game-section.cross-mark > .boxes:not(.cross):not(.circle):hover::before {
+    width: 60%;
+    height: 10px;
+    top: 45%;
+    margin-right: 5%;
+}
+
+
+.game-section.cross-mark > .boxes:not(.cross):not(.circle):hover::after {
+    left: 45%;
+    margin-top: 0%;
+    width: 10px;
+    height: 70%;
+}
+
+
 .cross::after, .cross::before {
     content: '';
     position: absolute;
@@ -454,23 +502,24 @@ h3, h5, p, div {
 }
 
 .cross::after {
-    left: 47%;
-    margin-top: 12%;
+    left: 45%;
+    margin-top: 0%;
     width: 10px;
     height: 70%;
 }
 
 .cross::before {
-    width: 57%;
+    width: 60%;
     height: 10px;
     top: 45%;
-    margin-right: 2%;
+    margin-right: 5%;
 }
 
 .circle {
     position: relative;
 }
 
+.game-section.circle-mark > .boxes:not(.circle):not(.cross):hover::after,
 .circle::after {
     content: '';
     height: 60%;
@@ -478,6 +527,10 @@ h3, h5, p, div {
     margin: auto;
     border: 12px solid var(--changeCircleAfter, #F2B137);
     border-radius: 50%;
+}
+
+.game-section.circle-mark > .boxes:not(.circle):not(.cross):hover::after {
+    border: 12px solid  #f2b13765;
 }
 
 .circle-after {
@@ -539,6 +592,15 @@ h3, h5, p, div {
     height: 40px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
+}
+
+#quit-button {
+    cursor: pointer;
+}
+
+#restart-new-game-button {
+    cursor: pointer;
 }
 
 .silver-button {
@@ -548,6 +610,7 @@ h3, h5, p, div {
     border: none;
     border-radius: 10px;
     border-bottom: 2px solid #647379;
+    cursor: pointer;
 }
 
 .silver-button:hover {
@@ -562,6 +625,7 @@ h3, h5, p, div {
     width: 120px;
     background-color: var(--orange-button);
     border-bottom: 2px solid #b48122;
+    cursor: pointer;
 }
 
 .orange-button:hover {
@@ -617,10 +681,12 @@ h3, h5, p, div {
 
 #no-button {
     width: 120px;
+    cursor: pointer;
 }
 
 #yes-button {
     width: 120px;
+    cursor: pointer;
 }
 
 

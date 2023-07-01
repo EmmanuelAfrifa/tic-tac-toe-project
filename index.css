@@ -489,7 +489,7 @@ h3, h5, p, div {
     content: '';
     position: absolute;
     background-color: var(--squares-background);
-    border: 2px solid var(--blue-button);
+    border: 2px solid #31c3be57;
     transform: rotate(45deg);
 } 
 

@@ -150,6 +150,10 @@ function markersToggler(event){
     // Clearing and setting the class name of the event to boxes.
     event.className = 'boxes';
 
+    if (event.target.classList.contains('cross') || event.target.classList.contains('circle')){
+        return;
+    }
+
     event.target.classList.add(currentMark);
     boardArray[event.target.id] = currentMark; 
     player = currentMark;  
